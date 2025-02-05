@@ -55,7 +55,7 @@
                  
                  </div>
                  <div class="home-img padd-15">
-                  <img src="static/images/pic.jpeg" alt="">
+                  <img src="static/images/Quote.jpg" alt="">
                  </div>
                  </div> 
                 </div>
@@ -303,37 +303,43 @@
     <!-- ====contact form ==== -->
      <div class="row">
       <div class="contact-form padd-15">
-        <div class="row">
-         <div class="form-item col-6 padd-15">
-          <div class="form-group">
-            <input type="text" class="form-control" name="name" placeholder="Name">
-          </div>
-         </div>
-         <div class="form-item col-6 padd-15">
-          <div class="form-group">
-            <input type="email" class="form-control" placeholder="Email">
-          </div>
-         </div> 
-        </div>
-        <div class="row">
-          <div class="form-item col-12 padd-15">
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="7936d8d1-bcee-47b5-9607-3bd3e2aaeae6">
+          <!-- Honeypot Spam Protection -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+          
+          <div class="row">
+           <div class="form-item col-6 padd-15">
             <div class="form-group">
-              <input type="text" class="form-control"  placeholder="Subject">
+              <input type="text" class="form-control" name="name" placeholder="Name" required>
+            </div>
+           </div>
+           <div class="form-item col-6 padd-15">
+            <div class="form-group">
+              <input type="email" class="form-control" name="email" placeholder="Email" required>
             </div>
            </div> 
-        </div>
-        <div class="row">
-          <div class="form-item col-12 padd-15">
-            <div class="form-group">
-              <textarea name="" class="form-control" id="" placeholder="Message"></textarea>
-            </div>
-           </div> 
-        </div>
-        <div class="row">
-          <div class="form-item col-12 padd-15">
-          <button type="submit" class="btn">Send Message</button>
-           </div> 
-        </div>
+          </div>
+          <div class="row">
+            <div class="form-item col-12 padd-15">
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+              </div>
+             </div> 
+          </div>
+          <div class="row">
+            <div class="form-item col-12 padd-15">
+              <div class="form-group">
+                <textarea name="message" class="form-control" placeholder="Message" required></textarea>
+              </div>
+             </div> 
+          </div>
+          <div class="row">
+            <div class="form-item col-12 padd-15">
+            <button type="submit" class="btn">Send Message</button>
+             </div> 
+          </div>
+        </form>
       </div>
      </div>
   </div>
@@ -399,27 +405,6 @@
 
       sections.forEach(section => {
           observer.observe(section);
-      });
-
-      // Contact form submission handling
-      const contactForm = document.querySelector(".contact-form");
-      const submitButton = document.querySelector(".contact-form .btn");
-
-      submitButton.addEventListener("click", function (event) {
-          event.preventDefault();
-          
-          const name = document.querySelector('input[name="name"]').value.trim();
-          const email = document.querySelector('input[type="email"]').value.trim();
-          const subject = document.querySelector('input[placeholder="Subject"]').value.trim();
-          const message = document.querySelector('textarea').value.trim();
-
-          if (name === "" || email === "" || subject === "" || message === "") {
-              alert("Please fill in all fields before submitting.");
-              return;
-          }
-
-          alert(`Thank you, ${name}! We will reach out to you soon.`);
-          contactForm.reset();
       });
   });
 </script>
